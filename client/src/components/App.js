@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import * as actions from '../actions';
+
+import SurveyNew from './surveys/surveyNew'
 import Header from "./Header";
 import DashBoard from "./Dashboard";
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 import Landing from './Landing';
 
 
-const SurveyNew = () => <h2>SurveyNew</h2>;
+
 
 
 class App extends Component {
