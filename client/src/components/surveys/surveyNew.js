@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import SurveyForm from './SurveyForm';
-
+import React, { Component } from "react";
+import SurveyForm from "./SurveyForm";
 
 class SurveyNew extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <SurveyForm />
       </div>
-
     );
   }
 }
