@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import {Link} from 'react-router-dom';
+import validateEmails  from '../../utils/validateEmails'
 import SurveyField from "./SurveyField";
+import formField from './formField'
 import _ from "lodash";
 
-const FILEDS = [
-  { label: "Survey Title", name: "title" },
-  { label: "Subject Line", name: "subject" },
-  { label: "Email Body", name: "body" },
-  { label: "Recipient List", name: "emails" }
-];
 
 class SurveyForm extends Component {
   renderFields() {
 
-    return _.map(FILEDS, ({ label, name }) => {
+    return _.map(formField, ({ label, name }) => {
       return (
         <Field key={name}
         component={SurveyField}
@@ -28,7 +24,7 @@ class SurveyForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
 
           <Link to='/surveys' className='btn-flat red white-text'>
@@ -46,7 +42,7 @@ class SurveyForm extends Component {
 
 function validate(values) {
   const errors = {};
-
+  errors.emails = validateEmails(values.emails || '')
   if(!values.title){
     errors.title = 'You must provide  title'
   }
@@ -54,5 +50,6 @@ function validate(values) {
 }
 export default reduxForm({
   validate: validate,
-  form: "surveyForm"
+  form: "surveyForm",
+  destroyOnUnmount: false
 })(SurveyForm);
