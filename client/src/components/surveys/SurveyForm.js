@@ -42,7 +42,8 @@ class SurveyForm extends Component {
 
 function validate(values) {
   const errors = {};
-  errors.emails = validateEmails(values.emails || '')
+
+  errors.recipients = validateEmails(values.emails || '')
   if(!values.title){
     errors.title = 'You must provide  title'
   }
