@@ -9,7 +9,7 @@
     "client": "npm run start --prefix client",
     "dev": " concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook":"./sendgrid_webhooks.sh"
+    "webhook": "./sendgrid_webhooks.sh"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "nodemon": "^1.17.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.1.1",
     "save": "^2.3.2",
     "sendgrid": "^5.2.3",
     "stripe": "^6.1.0",
