@@ -11,7 +11,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google/">Login With Google</a>
+              <a href="/auth/google/" className='btn waves-light btn-small white-text'>Login With Google</a>
           </li>
         );
       default:
@@ -29,8 +29,9 @@ class Header extends Component {
           <Link
             to={this.props.auth ? "/surveys" : "/"}
             className=" left brand-logo"
+            style={{paddingLeft: 20}}
           >
-            SurveyApp
+            EMAILY
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
